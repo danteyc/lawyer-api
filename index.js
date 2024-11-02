@@ -2,6 +2,7 @@ import express from 'express';
 import authRoutes from './src/routes/authRoutes.js';
 import lawyerRoutes from './src/routes/lawyerRoutes.js';
 import specialtyRoutes from './src/routes/specialtyRoutes.js';
+import cityRoutes from './src/routes/cityRoutes.js';
 import models from './src/models/index.js'; 
 import sequelize from './src/config/db.js';
 import bcrypt from 'bcryptjs';
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/lawyer', lawyerRoutes);
 app.use('/specialty', specialtyRoutes);
+app.use('/city', cityRoutes);
 
 
 async function initializeAdminUser() {
