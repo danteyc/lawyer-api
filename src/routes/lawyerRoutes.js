@@ -8,8 +8,8 @@ const router = express.Router();
 router.post('/create', authenticate, isTokenRevoked, authorizeAdmin, createLawyer);
 router.put('/edit/:id', authenticate, isTokenRevoked, authorizeAdmin, updateLawyer);
 router.delete('/delete/:id', authenticate, isTokenRevoked, authorizeAdmin, deleteLawyer);
-router.get('/list', authenticate, listLawyers);
-router.get('/search', authenticate, searchLawyers);
+router.get('/list', listLawyers);
+router.get('/search', searchLawyers);
 
 
 export default router;

@@ -36,7 +36,17 @@ export const login = async (req, res) => {
         }
 
         const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.json({ message: 'Inicio de sesión exitoso', token });
+
+        res.json({
+            message: 'Inicio de sesión exitoso',
+            token,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }
+        });
     } catch (error) {
         res.status(500).json({ error: `Error al iniciar sesión, ${error}` });
     }
