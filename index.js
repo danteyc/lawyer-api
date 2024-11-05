@@ -2,6 +2,7 @@ import express from 'express';
 import authRoutes from './src/routes/authRoutes.js';
 import lawyerRoutes from './src/routes/lawyerRoutes.js';
 import specialtyRoutes from './src/routes/specialtyRoutes.js';
+import uploadRoutes from './src/routes/uploadRoutes.js';
 import cityRoutes from './src/routes/cityRoutes.js';
 import models from './src/models/index.js'; 
 import sequelize from './src/config/db.js';
@@ -18,6 +19,7 @@ app.use('/auth', authRoutes);
 app.use('/lawyer', lawyerRoutes);
 app.use('/specialty', specialtyRoutes);
 app.use('/city', cityRoutes);
+app.use('/upload', uploadRoutes);
 
 
 async function initializeAdminUser() {

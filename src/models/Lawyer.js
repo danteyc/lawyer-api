@@ -13,7 +13,8 @@ const Lawyer = sequelize.define('Lawyer', {
     phoneNumber: { type: DataTypes.STRING, allowNull: false },
     dni: { type: DataTypes.STRING, allowNull: false },
     specialtyId: { type: DataTypes.INTEGER, allowNull: false },
-    description: { type: DataTypes.TEXT, allowNull: true }
+    description: { type: DataTypes.TEXT, allowNull: true },
+    image: {type: DataTypes.STRING, allowNull: true}
 });
 
 Lawyer.associate = models => {

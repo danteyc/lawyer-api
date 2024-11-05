@@ -115,3 +115,21 @@ export const searchLawyers = async (req, res) => {
       res.status(500).json({ error: 'Error al buscar abogados' });
   }
 };
+
+export const getLawyerDetail = async (req, res) => {
+    try {
+        const { id } = req.params;
+  
+        const lawyer = await Lawyer.findByPk(id, {
+            include: [City, Specialty]
+        });
+  
+        if (!lawyer) {
+            return res.status(404).json({ message: 'Abogado no encontrado' });
+        }
+  
+        res.json({ lawyer });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener detalle del abogado' });
+    }
+  };
